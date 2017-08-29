@@ -7,7 +7,7 @@ cbow_helper = CbowSimpleHelper()
 
 learning_rate = 0.01
 batch_size = 1000
-epochs = 5
+epochs = 1
 display_step = 1
 N = 100 # embedding size
 V = cbow_helper.get_voc_size()   # vocabulary size
@@ -50,7 +50,7 @@ with tf.Session() as sess:
             print("Epoch:", '%04d' % (epoch + 1), "cost=", \
             "{:.9f}".format(avg_cost))
         print('Finished epoch: '+str(epoch) + 'in Time: '+str(time.time() - st))
-    pickle.dump(sess.run(weight['W1']),open('data/weights.pkl'))
+    pickle.dump(sess.run(weight['W1']),open('data/weights.pkl','wb'))
 print("Optimization Finished!")
 
 
